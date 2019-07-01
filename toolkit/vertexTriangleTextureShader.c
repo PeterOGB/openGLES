@@ -1,0 +1,12 @@
+uniform mat4 u_MVPMatrix;
+uniform vec4 u_moveMatrix;
+uniform mat4 u_rotateMatrix;
+attribute vec4 a_position;
+attribute vec2 a_texCoord;
+varying vec2 v_texCoord;
+
+void main()
+{
+    gl_Position = u_MVPMatrix * ((u_rotateMatrix * a_position) + u_moveMatrix);
+    v_texCoord = a_texCoord;
+}
